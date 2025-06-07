@@ -20,14 +20,14 @@ int main()
         cin >> moves[i];
     }
 
-    int x = 0; // Начальная позиция короля
+    int x = 0; 
     int y = 0;
 
-    // Используем std::set для хранения посещенных позиций
+    // std::set для хранения посещенных позиций
     set<pair<int, int>> visitedPositions;
-    visitedPositions.insert({x, y}); // Записываем начальную позицию
+    visitedPositions.insert({x, y}); 
 
-    auto start = high_resolution_clock::now(); // Засекаем время
+    auto start = high_resolution_clock::now(); 
 
     bool visitedTwice = false;
     for (const string &move : moves)
@@ -74,7 +74,6 @@ int main()
             return 1;
         }
 
-        // Проверяем, была ли позиция посещена ранее
         if (visitedPositions.count({x, y}))
         {
             visitedTwice = true;
@@ -86,7 +85,7 @@ int main()
         }
     }
 
-    auto stop = high_resolution_clock::now(); // Засекаем время окончания
+    auto stop = high_resolution_clock::now(); 
 
     auto duration = duration_cast<microseconds>(stop - start);
 
