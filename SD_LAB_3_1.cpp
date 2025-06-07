@@ -35,9 +35,9 @@ int main()
     int x = 0; // Начальная позиция короля
     int y = 0;
     vector<pair<int, int>> visitedPositions;
-    visitedPositions.push_back({x, y}); // Записываем начальную позицию
+    visitedPositions.push_back({x, y}); 
 
-    auto start = high_resolution_clock::now(); // Засекаем время
+    auto start = high_resolution_clock::now(); // Время начала обработки ходов
 
     bool visitedTwice = false;
     for (const string &move : moves)
@@ -95,7 +95,7 @@ int main()
         }
     }
 
-    auto stop = high_resolution_clock::now(); // Засекаем время окончания
+    auto stop = high_resolution_clock::now(); // Время окончания
     auto duration = duration_cast<microseconds>(stop - start);
 
     if (visitedTwice)
