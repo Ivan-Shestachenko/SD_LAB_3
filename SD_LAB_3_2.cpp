@@ -6,7 +6,7 @@
 using namespace std;
 using namespace std::chrono;
 
-// Структура для узла связанного списка
+// Структура для узла списка
 struct Node
 {
     int x;
@@ -16,7 +16,7 @@ struct Node
     Node(int x, int y) : x(x), y(y), next(nullptr) {}
 };
 
-// Функция для определения, был ли король на этой позиции ранее (связанный список)
+// Функция для определения, был ли король на этой позиции ранее
 bool visitedBefore(Node *head, int x, int y)
 {
     Node *current = head;
@@ -31,7 +31,7 @@ bool visitedBefore(Node *head, int x, int y)
     return false;
 }
 
-// Функция для освобождения памяти, занятой связанным списком
+// Функция для освобождения памяти, занятой списком
 void deleteList(Node *head)
 {
     while (head != nullptr)
@@ -58,10 +58,10 @@ int main()
     int x = 0; // Начальная позиция короля
     int y = 0;
 
-    // Создаем голову связанного списка и добавляем начальную позицию
+    // Начало связанного списка с нулевой позицией
     Node *head = new Node(x, y);
 
-    auto start = high_resolution_clock::now(); // Засекаем время
+    auto start = high_resolution_clock::now(); 
 
     bool visitedTwice = false;
     for (const string &move : moves)
@@ -105,7 +105,7 @@ int main()
         else
         {
             cout << "Некорректный ход: " << move << endl;
-            deleteList(head); // Освобождаем память перед выходом
+            deleteList(head); 
             return 1;
         }
 
@@ -116,7 +116,6 @@ int main()
         }
         else
         {
-            // Добавляем новую позицию в конец связанного списка
             Node *newNode = new Node(x, y);
             Node *current = head;
             while (current->next != nullptr)
@@ -127,7 +126,7 @@ int main()
         }
     }
 
-    auto stop = high_resolution_clock::now(); // Засекаем время окончания
+    auto stop = high_resolution_clock::now(); 
 
     auto duration = duration_cast<microseconds>(stop - start);
 
@@ -142,7 +141,6 @@ int main()
 
     cout << "Время выполнения: " << duration.count() << " мс" << endl;
 
-    // Освобождаем память, занятую связанным списком
     deleteList(head);
 
     return 0;
