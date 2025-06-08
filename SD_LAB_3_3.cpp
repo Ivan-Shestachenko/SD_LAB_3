@@ -10,11 +10,11 @@ using namespace std::chrono;
 int main()
 {
     int n;
-    cout << "Введите количество ходов (N): ";
+    cout << "Enter the number of moves (N): ";
     cin >> n;
 
     vector<string> moves(n);
-    cout << "Введите последовательность ходов (u, d, l, r, ul, ur, dl, dr), каждый на новой строке: " << endl;
+    cout << "Enter the sequence of moves (u(up), d(down), l(left), r(right), ul(up-left), ur(up-right), dl(down-left), dr(down-right)), each on a new line: " << endl;
     for (int i = 0; i < n; ++i)
     {
         cin >> moves[i];
@@ -91,14 +91,14 @@ int main()
 
     if (visitedTwice)
     {
-        cout << "Король побывал на одном и том же поле дважды." << endl;
+        cout << "The king visited the same field twice." << endl;
     }
     else
     {
-        cout << "Король не был на одном и том же поле дважды." << endl;
+        cout << "The king DON'T visited the same field twice." << endl;
     }
 
-    cout << "Время выполнения: " << duration.count() << " мс" << endl;
+    cout << "Time: " << duration.count() << " ms" << endl;
 
     return 0;
 }
